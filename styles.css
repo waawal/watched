@@ -212,7 +212,7 @@ table {
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  table-layout:auto;
+  table-layout:fixed;
   word-wrap:break-word;
 }
 

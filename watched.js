@@ -67,7 +67,7 @@
   };
 
   render_table = function(repos, name, table) {
-    var $table, $tbody, html, template;
+    var $table, $tbody, amount, html, template, _ref;
     if (table == null) {
       table = "table";
     }
@@ -77,13 +77,13 @@
     html = Mustache.to_html(template, {
       array: repos
     });
+    amount = (_ref = repos.length) != null ? _ref : 0;
     $("header p").html(Mustache.to_html('<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', {
       name: name,
-      amount: repos.length
+      amount: amount
     }));
     $tbody.html(html);
     $table.stupidtable();
-    $tbody.css("width", "100%");
     return $("#spinner").spin(false);
   };
 
@@ -99,17 +99,17 @@
         contentType: "application/json",
         dataType: 'jsonp',
         success: function(data, status, xhr) {
-          var next, _i, _len, _ref;
+          var entry, next, _i, _len, _ref;
           allRepos = allRepos.concat(data.data);
-          _ref = data.meta;
+          _ref = data.meta['Link'];
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            next = _ref[_i];
-            if (next[1]['rel'] === 'next') {
-              next = next[0];
+            entry = _ref[_i];
+            if (entry[1]['rel'] === 'next') {
+              next = entry[0];
             }
           }
           if (next) {
-            return get_repo(next[0]);
+            return get_repo(next);
           } else {
             return render_table(allRepos, user);
           }

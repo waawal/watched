@@ -65,10 +65,10 @@ render_table = (repos, name, table="table") ->
   {{/array}}
   """
   html = Mustache.to_html template, { array: repos }
-  $("header p").html Mustache.to_html '<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', { name: name, amount: repos.length}
+  amount = repos.length ? 0
+  $("header p").html Mustache.to_html '<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', { name: name, amount: amount}
   $tbody.html html
   $table.stupidtable()
-  $tbody.css("width","100%")
   $("#spinner").spin false
 
 get_repos = (user) ->
@@ -84,9 +84,9 @@ get_repos = (user) ->
       dataType: 'jsonp',
       success : (data, status, xhr) ->
         allRepos = allRepos.concat data.data
-        next = next[0] for next in data.meta when next[1]['rel'] == 'next'
+        next = entry[0] for entry in data.meta['Link'] when entry[1]['rel'] == 'next'
         if next
-          get_repo next[0]
+          get_repo next
         else
           render_table allRepos, user
 
