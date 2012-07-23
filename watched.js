@@ -90,17 +90,25 @@
     var allRepos, firstUrl, get_repo;
     $("tbody:first").empty();
     $("#spinner").spin("large");
-    firstUrl = "https://api.github.com/users/" + user + "/watched?page=1&per_page=100";
+    firstUrl = "https://api.github.com/users/" + user + "/watched?page=1&per_page=100&callback=?";
     allRepos = [];
     get_repo = function(page) {
       return $.ajax(page, {
+        jsonpCallback: 'jsonCallback',
+        contentType: "application/json",
+        dataType: 'jsonp',
         success: function(data, status, xhr) {
-          var linkHeader, links;
-          linkHeader = xhr.getResponseHeader('Link');
-          allRepos = allRepos.concat(data);
-          links = $.linkheaders(linkHeader);
-          if (links.find('next')) {
-            return get_repo(links.find('next').attr('href'));
+          var next, _i, _len, _ref;
+          allRepos = allRepos.concat(data.data);
+          _ref = data.meta;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            next = _ref[_i];
+            if (next[1]['rel'] === 'next') {
+              next = next[0];
+            }
+          }
+          if (next) {
+            return get_repo(next[0]);
           } else {
             return render_table(allRepos, user);
           }

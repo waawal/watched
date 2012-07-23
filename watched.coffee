@@ -74,18 +74,19 @@ render_table = (repos, name, table="table") ->
 get_repos = (user) ->
   $("tbody:first").empty()
   $("#spinner").spin "large"
-  firstUrl = "https://api.github.com/users/#{ user }/watched?page=1&per_page=100"
+  firstUrl = "https://api.github.com/users/#{ user }/watched?page=1&per_page=100&callback=?"
   allRepos = []
   
   get_repo = (page) ->
     $.ajax page,
+      jsonpCallback: 'jsonCallback',
+      contentType: "application/json",
+      dataType: 'jsonp',
       success : (data, status, xhr) ->
-        linkHeader = xhr.getResponseHeader 'Link'
-        allRepos = allRepos.concat data
-        
-        links = $.linkheaders linkHeader
-        if links.find 'next'
-          get_repo links.find('next').attr 'href'
+        allRepos = allRepos.concat data.data
+        next = next[0] for next in data.meta when next[1]['rel'] == 'next'
+        if next
+          get_repo next[0]
         else
           render_table allRepos, user
 
