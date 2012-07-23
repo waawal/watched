@@ -6,3 +6,9 @@ I sometimes use the watch-functionality to bookmark interesting projects. When I
 :octocat: http://waawal.github.com/watched/?#users/github
 
 *This project is in no way affiliated or endorsed to/by Github*
+
+* The table is sorted with https://github.com/joequery/Stupid-Table-Plugin  
+* JSON-objects formatted with https://github.com/janl/mustache.js  
+* Routing handled by https://github.com/jgallen23/routie
+* Spinning effect by https://github.com/fgnass/spin.js  
+* Original theme by https://github.com/orderedlist  
