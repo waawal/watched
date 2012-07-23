@@ -104,7 +104,9 @@ get_repos = (user) ->
 $(document).ready ->
   
   routie('users/:name',
-  (name) -> get_repos(name)
+  (name) ->
+    get_repos(name)
+    document.title = "Watched Repositories of " + name
   )
   
   $("form:first").submit ->
