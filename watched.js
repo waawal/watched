@@ -104,6 +104,11 @@
         dataType: 'jsonp',
         success: function(data, status, xhr) {
           var entry, next, _i, _len, _ref;
+          if (data.meta.status !== 200) {
+            $("#spinner").spin(false);
+            $("header p").html("User not found.");
+            return;
+          }
           allRepos = allRepos.concat(data.data);
           if (data.meta['Link']) {
             _ref = data.meta['Link'];

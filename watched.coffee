@@ -86,6 +86,10 @@ get_repos = (user) ->
       contentType: "application/json",
       dataType: 'jsonp',
       success : (data, status, xhr) ->
+        if data.meta.status isnt 200
+          $("#spinner").spin false
+          $("header p").html "User not found."
+          return
         allRepos = allRepos.concat data.data
         if data.meta['Link']
           next = entry[0] for entry in data.meta['Link'] when entry[1]['rel'] == 'next'
