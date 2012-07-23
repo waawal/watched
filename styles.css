@@ -57,6 +57,7 @@ p {
 strong {
   color: #222;
   font-weight: 700;
+  padding: 5px 10px;
 }
 
 header {
@@ -211,7 +212,7 @@ table {
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  table-layout:fixed;
+  table-layout:auto;
   word-wrap:break-word;
 }
 
