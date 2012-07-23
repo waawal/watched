@@ -58,7 +58,7 @@ render_table = (repos, name, table="table") ->
       <tr>
             <td><a href="{{html_url}}" title="{{full_name}}">{{name}}</a></td>
             <td>{{description}}</td>
-            <td><img src="{{owner.avatar_url}}"> <a href="#users/{{owner.login}}">{{owner.login}}</a></td>
+            <td><img src="{{owner.avatar_url}}"><a href="#users/{{owner.login}}">{{owner.login}}</a></td>
             <td>{{watchers}}</td>
             <td>{{language}}</td>
         </tr>
