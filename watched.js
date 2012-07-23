@@ -77,7 +77,7 @@
     html = Mustache.to_html(template, {
       array: repos
     });
-    $("header p").html(Mustache.to_html("@{{name}}", {
+    $("header p").html(Mustache.to_html('@<a href="https://github.com/{{name}}">{{name}}</a>', {
       name: name
     }));
     $tbody.html(html);

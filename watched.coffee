@@ -65,7 +65,7 @@ render_table = (repos, name, table="table") ->
   {{/array}}
   """
   html = Mustache.to_html template, { array: repos }
-  $("header p").html Mustache.to_html "@{{name}}", { name: name }
+  $("header p").html Mustache.to_html '@<a href="https://github.com/{{name}}">{{name}}</a>', { name: name }
   $tbody.html html
   $table.stupidtable()
   $tbody.css("width","100%")
