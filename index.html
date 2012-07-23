@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Watched</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://fgnass.github.com/spin.js/dist/spin.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/joequery/Stupid-Table-Plugin/master/stupidtable.min.js?dev"></script>
+    <script type="text/javascript" src="https://raw.github.com/janl/mustache.js/master/mustache.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/jgallen23/routie/master/dist/routie.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/wombleton/link-headers/master/src/main/linkheaders.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/wombleton/link-headers/master/src/main/uritemplate.js"></script>
+    <script type="text/javascript" src="watched.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+        <header>
+            <h1>Watched Repositories</h1>
+            <p> @Github </p>
+            <ul>
+                <li id="spinner">
+            </ul>
+        </header>
+        
+        <section>
+            <strong>Username:</strong>
+            <code>
+                <form>
+                    <input id="title">
+                </form>
+            </code>
+            
+            <table border="0">
+              <thead>
+                <tr>
+                  <th class="type-string">name</th>
+                  <th>description</th>
+                  <th class="type-string">user</th>
+                  <th class="type-int">watchers</th>
+                  <th class="type-string">language</th>
+                </tr>
+              </thead>
+              <tbody id="entries">
+                
+              </tbody>
+            </table>
+        
+        </section>
+        </div>
+        <footer>
+          <p>Sortable Table: <a href="https://github.com/joequery/Stupid-Table-Plugin">Stupid jQuery Table Sort</a><br>
+          Formatting: <a href="https://github.com/janl/mustache.js">mustache.js</a><br>
+          Routing: <a href="https://github.com/jgallen23/routie">routie</a><br>
+          Link-headers parsing: <a href="https://github.com/wombleton/link-headers">link-headers</a><br>
+          Spinner: <a href="https://github.com/fgnass/spin.js">spin.js</a><br>
+          Everything else: <a href="https://github.com/jquery/jquery">jQuery</a><br>
+          </p>
+          <p>Theme by <a href="https://github.com/orderedlist">orderedlist</a>, modified with CSS from <a href="http://coffeescript.org/">coffeescript.org</a></p>
+    </footer>
+    
+  </body>
+</html>
