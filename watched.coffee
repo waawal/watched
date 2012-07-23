@@ -58,14 +58,14 @@ render_table = (repos, name, table="table") ->
       <tr>
             <td><a href="{{html_url}}" title="{{full_name}}">{{name}}</a></td>
             <td>{{description}}</td>
-            <td><img src="{{owner.avatar_url}}"><a href="#users/{{owner.login}}">{{owner.login}}</a></td>
+            <td><img src="{{owner.avatar_url}}"> <a href="#users/{{owner.login}}">{{owner.login}}</a></td>
             <td>{{watchers}}</td>
             <td>{{language}}</td>
         </tr>
   {{/array}}
   """
   html = Mustache.to_html template, { array: repos }
-  $("header p").html Mustache.to_html '@<a href="https://github.com/{{name}}">{{name}}</a>', { name: name }
+  $("header p").html Mustache.to_html '<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', { name: name, amount: repos.length}
   $tbody.html html
   $table.stupidtable()
   $tbody.css("width","100%")
