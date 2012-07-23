@@ -65,7 +65,10 @@ render_table = (repos, name, table="table") ->
   {{/array}}
   """
   html = Mustache.to_html template, { array: repos }
-  amount = repos.length ? 0
+  if repos
+    amount = repos.length
+  else
+    amount = 0
   $("header p").html Mustache.to_html '<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', { name: name, amount: amount}
   $tbody.html html
   $table.stupidtable()
