@@ -87,7 +87,8 @@ get_repos = (user) ->
       dataType: 'jsonp',
       success : (data, status, xhr) ->
         allRepos = allRepos.concat data.data
-        next = entry[0] for entry in data.meta['Link'] when entry[1]['rel'] == 'next'
+        if data.meta['Link']
+          next = entry[0] for entry in data.meta['Link'] when entry[1]['rel'] == 'next'
         if next
           get_repo next
         else

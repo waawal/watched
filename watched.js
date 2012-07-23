@@ -67,7 +67,7 @@
   };
 
   render_table = function(repos, name, table) {
-    var $table, $tbody, amount, html, template, _ref;
+    var $table, $tbody, amount, html, template;
     if (table == null) {
       table = "table";
     }
@@ -77,7 +77,11 @@
     html = Mustache.to_html(template, {
       array: repos
     });
-    amount = (_ref = repos.length) != null ? _ref : 0;
+    if (repos) {
+      amount = repos.length;
+    } else {
+      amount = 0;
+    }
     $("header p").html(Mustache.to_html('<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', {
       name: name,
       amount: amount
@@ -101,11 +105,13 @@
         success: function(data, status, xhr) {
           var entry, next, _i, _len, _ref;
           allRepos = allRepos.concat(data.data);
-          _ref = data.meta['Link'];
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            entry = _ref[_i];
-            if (entry[1]['rel'] === 'next') {
-              next = entry[0];
+          if (data.meta['Link']) {
+            _ref = data.meta['Link'];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              entry = _ref[_i];
+              if (entry[1]['rel'] === 'next') {
+                next = entry[0];
+              }
             }
           }
           if (next) {
