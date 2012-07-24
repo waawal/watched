@@ -260,7 +260,10 @@ dt {
 
 th {
   color: #222;
-  width: 12%
+}
+
+.names{
+    width: 12%
 }
 
 .descriptions {
