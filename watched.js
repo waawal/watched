@@ -85,7 +85,7 @@
       name: name,
       amount: amount
     }));
-    $tbody.fadeOut("fast");
+    $tbody.hide();
     $tbody.html(html).fadeIn("slow");
     $table.stupidtable();
     return $("#spinner").spin(false);
@@ -106,7 +106,8 @@
           var entry, next, _i, _len, _ref;
           if (data.meta.status !== 200) {
             $("#spinner").spin(false);
-            $("tbody:first").fadeOut('slow').empty();
+            $("tbody:first").fadeOut('slow');
+            $("tbody:first").empty();
             $("header p").html("User not found.");
             return;
           }
