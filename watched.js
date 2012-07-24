@@ -101,6 +101,7 @@
         jsonpCallback: 'jsonCallback',
         contentType: "application/json",
         dataType: 'jsonp',
+        cache: true,
         success: function(data, status, xhr) {
           var entry, next, _i, _len, _ref;
           if (data.meta.status !== 200) {

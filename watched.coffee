@@ -84,6 +84,7 @@ get_repos = (user) ->
       jsonpCallback: 'jsonCallback',
       contentType: "application/json",
       dataType: 'jsonp',
+      cache: true,
       success : (data, status, xhr) ->
         if data.meta.status isnt 200
           $("#spinner").spin false
