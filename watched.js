@@ -93,7 +93,6 @@
 
   get_repos = function(user) {
     var allRepos, firstUrl, get_repo;
-    $("tbody:first").empty();
     $("#spinner").spin("large");
     firstUrl = "https://api.github.com/users/" + user + "/watched?page=1&per_page=100&callback=?";
     allRepos = [];
@@ -106,6 +105,7 @@
           var entry, next, _i, _len, _ref;
           if (data.meta.status !== 200) {
             $("#spinner").spin(false);
+            $("tbody:first").empty();
             $("header p").html("User not found.");
             return;
           }

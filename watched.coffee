@@ -75,7 +75,6 @@ render_table = (repos, name, table="table") ->
   $("#spinner").spin false
 
 get_repos = (user) ->
-  $("tbody:first").empty()
   $("#spinner").spin "large"
   firstUrl = "https://api.github.com/users/#{ user }/watched?page=1&per_page=100&callback=?"
   allRepos = []
@@ -88,6 +87,7 @@ get_repos = (user) ->
       success : (data, status, xhr) ->
         if data.meta.status isnt 200
           $("#spinner").spin false
+          $("tbody:first").empty()
           $("header p").html "User not found."
           return
         allRepos = allRepos.concat data.data
