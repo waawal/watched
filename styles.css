@@ -243,7 +243,7 @@ table {
   max-width: 100%;
   border-collapse: collapse;
   table-layout:fixed;
-  word-wrap:break-word;
+  word-wrap: break-word;
   overflow: auto;
 }
 
@@ -267,8 +267,18 @@ th {
   width: 40%;
 }
 
-.wider {
+.users {
   width: 15%;
+  overflow: hidden;
+  word-wrap: none;
+}
+
+.watchers {
+  width: 9%;
+}
+
+.languages {
+  width: 11%;
 }
 
 small {
