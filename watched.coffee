@@ -69,7 +69,8 @@ render_table = (repos, name, table="table") ->
   else
     amount = 0
   $("header p").html Mustache.to_html '<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', { name: name, amount: amount}
-  $tbody.html html
+  $tbody.fadeOut("fast")
+  $tbody.html(html).fadeIn("slow")
   $table.stupidtable()
   $("#spinner").spin false
 
@@ -87,7 +88,7 @@ get_repos = (user) ->
       success : (data, status, xhr) ->
         if data.meta.status isnt 200
           $("#spinner").spin false
-          $("tbody:first").empty()
+          $("tbody:first").fadeOut('slow').empty()
           $("header p").html "User not found."
           return
         allRepos = allRepos.concat data.data
