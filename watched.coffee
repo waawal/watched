@@ -70,7 +70,8 @@ render_table = (repos, name, table="table") ->
     amount = 0
   $("header p").html Mustache.to_html '<a href="https://github.com/{{name}}">{{name}}</a> ({{amount}})', { name: name, amount: amount}
   $tbody.hide()
-  $tbody.html(html).fadeIn "slow"
+  $tbody.html(html)
+  $tbody.fadeIn 1200
   $table.stupidtable()
   $("#spinner").spin false
 

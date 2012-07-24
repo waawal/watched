@@ -86,7 +86,8 @@
       amount: amount
     }));
     $tbody.hide();
-    $tbody.html(html).fadeIn("slow");
+    $tbody.html(html);
+    $tbody.fadeIn(1200);
     $table.stupidtable();
     return $("#spinner").spin(false);
   };
