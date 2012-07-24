@@ -258,6 +258,15 @@ dt {
 
 th {
   color: #222;
+  width: 10%
+}
+
+.descriptions {
+  width: 40%;
+}
+
+.wider {
+  width: 15%;
 }
 
 small {
