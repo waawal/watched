@@ -103,7 +103,7 @@ get_repos = (user) ->
   
 
 $(document).ready ->
-  
+
   routie('users/:name',
   (name) ->
     get_repos(name)
