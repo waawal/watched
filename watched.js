@@ -61,7 +61,6 @@
   get_user = function($formfield) {
     var uri;
     uri = "users/" + ($formfield.val());
-    $formfield.val("");
     $formfield.blur();
     return routie(uri);
   };

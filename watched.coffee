@@ -45,7 +45,6 @@ $.fn.spin = (opts) ->
 
 get_user = ($formfield) ->
   uri = "users/#{ $formfield.val() }"
-  $formfield.val ""
   $formfield.blur()
   routie uri
   
