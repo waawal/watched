@@ -136,7 +136,7 @@
   $(document).ready(function() {
     routie('users/:name', function(name) {
       get_repos(name);
-      return document.title = "Watched Repositories of " + name;
+      return document.title = name + " (Watched Repositories)";
     });
     return $("form:first").submit(function() {
       return get_user($("input:first"));
