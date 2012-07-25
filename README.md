@@ -12,5 +12,5 @@ I often use the watch-functionality to bookmark interesting projects. When I go 
 * Spinning effect by https://github.com/fgnass/spin.js  
 * Original theme by https://github.com/orderedlist  
 
-**This project is in no way affiliated or endorsed to/by Github**
+**This project is in no way affiliated to or endorsed by Github**
 
