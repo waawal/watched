@@ -31,12 +31,19 @@ input {
   width: 120px;
   float: left;
   display: table-cell;
-  background: #6c7989 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f8f8), color-stop(100%, #dadada)) fixed;
-  background: #6c7989 -webkit-linear-gradient(#f8f8f8, #dadada) fixed;
-  background: #6c7989 -moz-linear-gradient(#f8f8f8, #dadada) fixed;
-  background: #6c7989 -o-linear-gradient(#f8f8f8, #dadada) fixed;
-  background: #6c7989 -ms-linear-gradient(#f8f8f8, #dadada) fixed;
-  background: #6c7989 linear-gradient(#f8f8f8, #dadada) fixed;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  -o-border-radius: 4px 4px 4px 4px;
+  -ms-border-radius: 4px 4px 4px 4px;
+  -khtml-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  background: #C6EAFA;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ddfbfc), color-stop(100%, #c6eafa));
+  background: -webkit-linear-gradient(#f8f8f8, #dadada);
+  background: -moz-linear-gradient(#f8f8f8, #dadada);
+  background: -o-linear-gradient(#f8f8f8, #dadada);
+  background: -ms-linear-gradient(#f8f8f8,#dadada);
+  background: linear-gradient(#f8f8f8, #dadada);
 }
   
 body {
