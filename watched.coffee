@@ -77,7 +77,7 @@ render_table = (repos, name, table="table") ->
 
 get_repos = (user) ->
   $("#spinner").spin "large"
-  firstUrl = "https://api.github.com/users/#{ user }/watched?page=1&per_page=100&callback=?"
+  firstUrl = "https://api.github.com/users/#{ user }/starred?page=1&per_page=100&callback=?"
   allRepos = []
   
   get_repo = (page) ->
