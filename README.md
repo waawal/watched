@@ -14,3 +14,7 @@ I often use the watch-functionality to bookmark interesting projects. When I go 
 
 **This project is in no way affiliated to or endorsed by Github**
 
+
+**Note**
+
+This was created before GH started using the stars concept.
