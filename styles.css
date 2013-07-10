@@ -29,6 +29,7 @@ input {
 
 #submit {
   width: 120px;
+  height: 42px;
   float: left;
   display: table-cell;
   -moz-border-radius: 4px 4px 4px 4px;
